@@ -1,0 +1,22 @@
+.background {
+  --background: #3d546d;
+}
+
+ion-card-title {
+  padding: 20px;
+  margin-top: 80px;
+}
+ion-card-content {
+  margin-top: 40px;
+}
+
+ion-button {
+  --background: #59a0cb;
+  --border-width: 1px;
+  --border-color: #000;
+  --border-radius: 5px;
+  font-weight: 800;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 70px;
+}

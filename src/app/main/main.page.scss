@@ -1,0 +1,38 @@
+.background {
+  --background: #3d546d;
+}
+
+ion-card {
+  align-content: center;
+}
+
+ion-img {
+  width: 78px;
+  height: 78px;
+}
+
+ion-label {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+margin-top {
+  margin-top: 60px;
+}
+
+#ion-item-list {
+  --background: white;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  h2 {
+    color: black;
+  }
+  h5 {
+    color: red;
+  }
+}
+
+ion-item {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
