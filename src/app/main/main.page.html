@@ -16,7 +16,7 @@
                   <ion-img src='/assets/images/viewPatientButton.png' [routerLink]="['/search-patient']"></ion-img>
                 </ion-col>
                 <ion-col>
-                  <ion-img src='/assets/images/viewPatientButton.png' [routerLink]="['/login']"></ion-img>
+                  <ion-img src='/assets/images/viewPatientButton.png' [routerLink]="['/view-all-patients']"></ion-img>
                 </ion-col>
               </ion-row>
               <ion-row>
@@ -59,7 +59,7 @@
                 <ion-item id="ion-item-list">
                   <h2>Critical Cases</h2>
                 </ion-item>
-                <ion-item id="ion-item-list" *ngFor="let patient of loadedPatients">
+                <ion-item id="ion-item-list" *ngFor="let patient of loadedCriticalCases">
                   <h5> {{patient.patientName}} </h5>
                 </ion-item>
               </ion-list>
@@ -67,7 +67,4 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-
-
-
 </ion-content>

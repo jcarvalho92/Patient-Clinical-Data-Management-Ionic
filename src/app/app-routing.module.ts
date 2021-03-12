@@ -35,6 +35,10 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'view-all-patients',
+    loadChildren: () => import('./patient/view-all-patients/view-all-patients.module').then( m => m.ViewAllPatientsPageModule)
+  },
+  {
     path: 'search-record',
     loadChildren: () => import('./record/search-record/search-record.module').then( m => m.SearchRecordPageModule)
   },
@@ -46,6 +50,7 @@ const routes: Routes = [
     path: 'view-record',
     loadChildren: () => import('./record/view-record/view-record.module').then( m => m.ViewRecordPageModule)
   },
+
 ];
 
 @NgModule({

@@ -1,0 +1,24 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="background">
+  <ion-grid>
+    <ion-row>
+        <ion-col  size-md="6" offset-md="3" >
+          <ion-item class="titleContainer">
+            <ion-label class="title">Patients</ion-label>
+          </ion-item>
+          <ion-card color="medium">
+            <ion-input placeholder="search Patient" type="text"></ion-input>
+          </ion-card>
+          <ion-card>
+            <ion-list>
+              <ion-item id="ion-item-list" *ngFor="let patient of loadedPatients">
+                <h5> {{patient.patientName}} </h5>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
