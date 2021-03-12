@@ -1,23 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content class="background">
   <ion-card-header>
-    <ion-card-title color="light">Sign In</ion-card-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="2" offset-md="5">
+          <ion-card-title color="light">Sign In</ion-card-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-header>
   <ion-card-content>
-    <ion-item class="background">
-      <ion-label color="light" position="stacked">Your Email</ion-label>
-      <ion-input type="email-address"></ion-input>
-    </ion-item>
-    <ion-item class="background">
-      <ion-label color="light" position="stacked">Password</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-    <ion-button>Sign In</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-item class="background">
+            <ion-label color="light" position="stacked">Your Email</ion-label>
+            <ion-input type="email-address"></ion-input>
+          </ion-item>
+          <ion-item class="background">
+            <ion-label color="light" position="stacked">Password</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="2" offset-md="5">
+        <ion-button [routerLink]="['/main']">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
   </ion-card-content>
-
 </ion-content>

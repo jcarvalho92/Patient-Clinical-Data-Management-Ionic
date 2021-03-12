@@ -1,0 +1,31 @@
+<ion-header>
+</ion-header>
+<ion-content class="background">
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-radio-group [(ngModel)]="patient.search">
+            <ion-item>
+              <ion-label color="light">Search using Patient ID</ion-label>
+              <ion-radio slot="end" value="searchById"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label color="light">Search using Patient Name</ion-label>
+              <ion-radio slot="end" value="searchByName"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          <ion-item>
+            <ion-input placeholder="Type here" type="text" [(ngModel)]="patient.patientInfo"></ion-input>
+          </ion-item>
+
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="2" offset-md="5">
+        <ion-button (click)="submit()" [routerLink]="['/search-patient/' + patient.patientInfo]">Search</ion-button>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-content>

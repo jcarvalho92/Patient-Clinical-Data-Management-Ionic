@@ -1,7 +1,4 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Main</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content class="background">
@@ -9,14 +6,14 @@
     <ion-row>
         <ion-col  size-md="6" offset-md="3" >
           <ion-card class="background">
-            <ion-label class="ion-float-right" color="secondary">Log Out</ion-label>
+            <ion-label class="ion-float-right" color="secondary" [routerLink]="['/login']">Log Out</ion-label>
             <ion-grid  class="ion-margin-vertical">
               <ion-row class="ion-margin-top">
                 <ion-col>
                   <ion-img src='/assets/images/addPatientButton.png' [routerLink]="['/add-patient']"></ion-img>
                 </ion-col>
                 <ion-col>
-                  <ion-img src='/assets/images/viewPatientButton.png' [routerLink]="['/login']"></ion-img>
+                  <ion-img src='/assets/images/viewPatientButton.png' [routerLink]="['/search-patient']"></ion-img>
                 </ion-col>
                 <ion-col>
                   <ion-img src='/assets/images/viewPatientButton.png' [routerLink]="['/login']"></ion-img>
@@ -63,7 +60,7 @@
                   <h2>Critical Cases</h2>
                 </ion-item>
                 <ion-item id="ion-item-list" *ngFor="let patient of loadedPatients">
-                  <h5> {{patient.name}} </h5>
+                  <h5> {{patient.patientName}} </h5>
                 </ion-item>
               </ion-list>
             </ion-card>

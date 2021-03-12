@@ -7,14 +7,10 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+
   {
     path: 'login',
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-      },
-    ]
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
 
   {
@@ -25,8 +21,31 @@ const routes: Routes = [
     path: 'add-patient',
     loadChildren: () => import('./patient/add-patient/add-patient.module').then( m => m.AddPatientPageModule)
   },
-
-
+  {
+    path: 'search-patient',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./patient/search-patient/search-patient.module').then( m => m.SearchPatientPageModule)
+      },
+      {
+        path: ':patientInfo',
+        loadChildren: () => import('./patient/view-patient/view-patient.module').then( m => m.ViewPatientPageModule)
+      },
+    ]
+  },
+  {
+    path: 'search-record',
+    loadChildren: () => import('./record/search-record/search-record.module').then( m => m.SearchRecordPageModule)
+  },
+  {
+    path: 'add-record',
+    loadChildren: () => import('./record/add-record/add-record.module').then( m => m.AddRecordPageModule)
+  },
+  {
+    path: 'view-record',
+    loadChildren: () => import('./record/view-record/view-record.module').then( m => m.ViewRecordPageModule)
+  },
 ];
 
 @NgModule({
