@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Record } from '../record.model';
+import { RecordService } from '../record.service';
+
 
 @Component({
   selector: 'app-view-record',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRecordPage implements OnInit {
 
-  constructor() { }
+  loadedRecord: Record;
+  constructor(
+     private recordService: RecordService, 
+     private activatedRoute: ActivatedRoute 
+    ) { }
 
-  ngOnInit() {
+    ngOnInit() {
+      this.activatedRoute.paramMap.subscribe(paramMap => {
+        if (!paramMap.has('patientInfo')){
+          //redirect
+          return;
+    }
+    const patientInfo = paramMap.get('patientInfo');
+    this.loadedRecord = this.recordService.getPatient(patientInfo);
+    console.log(this.loadedRecord);
+   })
+  
+    }
   }
-
-}
+  

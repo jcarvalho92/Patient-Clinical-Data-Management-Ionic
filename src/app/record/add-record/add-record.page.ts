@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-record.page.scss'],
 })
 export class AddRecordPage implements OnInit {
-
+  
+  record: any ={};
   constructor() { }
 
   ngOnInit() {
+  }
+  submit() {
+    console.log(this.record);
   }
 
 }

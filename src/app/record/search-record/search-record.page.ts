@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class SearchRecordPage implements OnInit {
 
   constructor() { }
+  record: any = {};
 
   ngOnInit() {
+  }
+  
+  submit() {
+    console.log(this.record);
   }
 
 }

@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RemoteService {
-  url = "https://patient-data-api.herokuapp.com/api/";
+  url = "https://localhost:4000/api/";
+
   patientPath = "patients";
   recordPath = "records";
 
