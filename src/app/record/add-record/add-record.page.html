@@ -17,6 +17,9 @@
       <ion-row>
         <ion-col size-md="6" offset-md="3">
           <ion-item>
+            <ion-input placeholder="Patient Id" type="text" [(ngModel)]="record.patientId"></ion-input>
+          </ion-item>
+          <ion-item>
             <ion-input placeholder="Blood Pressure (mm Hg)" type="text" [(ngModel)]="record.bloodPressure"></ion-input>
           </ion-item>
           <ion-item>
@@ -41,11 +44,11 @@
           <ion-radio-group [(ngModel)]="record.status">
             <ion-item>
               <ion-label color="light">Normal</ion-label>
-              <ion-radio slot="end" value="normal"></ion-radio>
+              <ion-radio slot="end" value="Normal"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label color="light">Critical</ion-label>
-              <ion-radio slot="end" value="critical"></ion-radio>
+              <ion-radio slot="end" value="Critical"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>

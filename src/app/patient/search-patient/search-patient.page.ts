@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, NavigationExtras } from '@angular/router';
+import {RemoteService} from '../../providers/remote-service.service';
 @Component({
   selector: 'app-search-patient',
   templateUrl: './search-patient.page.html',
@@ -7,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPatientPage implements OnInit {
   patient: any = {};
-  constructor() { }
+  loadedPatient = null;
+  constructor(private remoteService: RemoteService, private router: Router) { }
 
   ngOnInit() {
   }
 
   submit() {
-    console.log(this.patient);
+    this.remoteService.getPatientByNameFromApi(this.patient.patientInfo).subscribe(result => {
+      this.loadedPatient = result;
+      let navigationExtras: NavigationExtras = {
+        state: {
+          patient: this.loadedPatient
+        }
+      };
+      this.router.navigate(['/', 'patientInfo'],navigationExtras);
+    });
   }
 }

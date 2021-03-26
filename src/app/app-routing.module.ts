@@ -23,16 +23,11 @@ const routes: Routes = [
   },
   {
     path: 'search-patient',
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./patient/search-patient/search-patient.module').then( m => m.SearchPatientPageModule)
-      },
-      {
-        path: ':patientInfo',
-        loadChildren: () => import('./patient/view-patient/view-patient.module').then( m => m.ViewPatientPageModule)
-      },
-    ]
+    loadChildren: () => import('./patient/search-patient/search-patient.module').then( m => m.SearchPatientPageModule)
+  },
+  {
+    path: 'patientInfo',
+    loadChildren: () => import('./patient/view-patient/view-patient.module').then( m => m.ViewPatientPageModule)
   },
   {
     path: 'view-all-patients',

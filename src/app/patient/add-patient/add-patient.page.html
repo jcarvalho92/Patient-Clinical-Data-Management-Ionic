@@ -20,17 +20,16 @@
             <ion-input placeholder="Full Name" type="text" [(ngModel)]="patient.name"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label color="light">Date of Birth</ion-label>
-            <ion-datetime display-format="MMM DD YYYY" [(ngModel)]="patient.birth"></ion-datetime>
+            <ion-input placeholder="Age" type="number" [(ngModel)]="patient.age"></ion-input>
           </ion-item>
           <ion-radio-group [(ngModel)]="patient.gender">
             <ion-item>
               <ion-label color="light">Female</ion-label>
-              <ion-radio slot="end" value="female"></ion-radio>
+              <ion-radio slot="end" value="F"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label color="light">Male</ion-label>
-              <ion-radio slot="end" value="male"></ion-radio>
+              <ion-radio slot="end" value="M"></ion-radio>
             </ion-item>
           </ion-radio-group>
           <ion-item>
