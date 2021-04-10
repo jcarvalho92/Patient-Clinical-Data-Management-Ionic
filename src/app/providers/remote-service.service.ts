@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
   providedIn: 'root'
 })
 export class RemoteService {
-  url = "http://localhost:4000/api/";
+  url = "http://192.168.0.101:4000/api/";
 
   patientPath = "patients";
   recordPath = "records";
@@ -42,8 +42,13 @@ export class RemoteService {
     return result;
   }
 
-  sendPatientRecordDataToApi(dateIncluded, record, doctorName){
-    const result = this.http.post(`${this.url}${this.patientPath}/${record.patientId}/${this.recordPath}`, {
+  getPatientRecordByNameFromApi(name) {
+    const result = this.http.get(`${this.url}${this.patientPath}/name/${name}/${this.recordPath}`);
+    return result;
+  }
+
+  sendPatientRecordDataToApi(dateIncluded, record,patientId, doctorName){
+    const result = this.http.post(`${this.url}${this.patientPath}/${patientId}/${this.recordPath}`, {
       dateIncluded: dateIncluded,
       doctor: doctorName,
       bloodPressure : record.bloodPressure,

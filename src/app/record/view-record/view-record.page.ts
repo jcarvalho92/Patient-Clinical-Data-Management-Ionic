@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { Record } from '../record.model';
-import { RecordService } from '../record.service';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import {RemoteService} from '../../providers/remote-service.service';
+//import { Record } from '../record.model';
+//import { RecordService } from '../record.service';
 
 
 @Component({
@@ -12,23 +12,17 @@ import { RecordService } from '../record.service';
 })
 export class ViewRecordPage implements OnInit {
 
-  loadedRecord: Record;
-  constructor(
-     private recordService: RecordService, 
-     private activatedRoute: ActivatedRoute 
-    ) { }
+  loadedRecord: any;
 
-    ngOnInit() {
-      this.activatedRoute.paramMap.subscribe(paramMap => {
-        if (!paramMap.has('patientInfo')){
-          //redirect
-          return;
-    }
-    const patientInfo = paramMap.get('patientInfo');
-    this.loadedRecord = this.recordService.getPatient(patientInfo);
-    console.log(this.loadedRecord);
-   })
-  
-    }
+  constructor(private remoteService: RemoteService,private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.loadedRecord = this.router.getCurrentNavigation().extras.state.record;
+      }
+
+    });
   }
-  
+
+  ngOnInit() {
+  }
+}

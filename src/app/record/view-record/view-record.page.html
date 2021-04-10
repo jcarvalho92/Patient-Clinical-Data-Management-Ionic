@@ -17,10 +17,22 @@
       <ion-row>
         <ion-col size-md="6" offset-md="3">
           <ion-row>
+            <ion-label class="title">doctor</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="info">{{loadedRecord.doctor}}</ion-label>
+          </ion-row>
+          <ion-row>
               <ion-label class="title">Patient ID</ion-label>
           </ion-row>
           <ion-row>
-              <ion-label class="info">{{loadedRecord.id}}</ion-label>
+              <ion-label class="info">{{loadedRecord.patient_id.toString()}}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="title">Date Included</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="info">{{loadedRecord.dateIncluded?.substring(0,10)}}</ion-label>
           </ion-row>
           <ion-row>
               <ion-label class="title">Name</ion-label>
@@ -44,7 +56,7 @@
             <ion-label class="title">Blood Oxygen Level (%)</ion-label>
           </ion-row>
           <ion-row>
-            <ion-label class="info">{{loadedRecord.bloodOxygenLevel}}</ion-label>
+            <ion-label class="info">{{loadedRecord.bloodOxygen}}</ion-label>
           </ion-row>
           <ion-row>
             <ion-label class="title">Heartbeat Rate (bps)</ion-label>
@@ -68,7 +80,13 @@
             <ion-label class="title">Temperature (Celsius)</ion-label>
           </ion-row>
           <ion-row>
-            <ion-label class="info">{{loadedRecord.temp}}</ion-label>
+            <ion-label class="info">{{loadedRecord.temperature}}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="title">Status</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="info">{{loadedRecord.status}}</ion-label>
           </ion-row>
         </ion-col>
     </ion-row>

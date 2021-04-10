@@ -7,13 +7,23 @@ import {RemoteService} from '../../providers/remote-service.service';
 })
 export class ViewAllPatientsPage implements OnInit {
   loadedPatients = null;
-
+  loadedCriticalPatients = [];
+  loadedNormalPatients = [];
   constructor(private remoteService: RemoteService) {
   }
 
   ngOnInit() {
     this.remoteService.getAllPatientAndRecord().subscribe(result => {
       this.loadedPatients = result;
+
+      this.loadedPatients.forEach(element => {
+        if(element.status.toLowerCase() == "critical"){
+          this.loadedCriticalPatients.push(element);
+        }
+        else{
+          this.loadedNormalPatients.push(element);
+        }
+      });
     });
   }
 

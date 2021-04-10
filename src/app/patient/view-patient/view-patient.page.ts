@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../patient.model';
-import {PatientService} from '../patient.service';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import {RemoteService} from '../../providers/remote-service.service';
 @Component({

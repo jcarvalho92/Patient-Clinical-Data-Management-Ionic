@@ -23,14 +23,14 @@
             </ion-item>
           </ion-radio-group>
           <ion-item>
-            <ion-input placeholder="Type here" type="text" [(ngModel)]="record.patientInfo"></ion-input>
+            <ion-input placeholder="Type here" type="text" [(ngModel)]="record.recordInfo"></ion-input>
           </ion-item>
 
         </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size-md="2" offset-md="5">
-        <ion-button (click)="submit()" [routerLink]="['/search-record/' + record.patientInfo]">Search</ion-button>
+        <ion-button (click)="submit()">Search</ion-button>
       </ion-col>
     </ion-row>
     </ion-grid>

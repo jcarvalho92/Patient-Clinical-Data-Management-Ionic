@@ -39,18 +39,12 @@ const routes: Routes = [
   },
   {
     path: 'search-record',
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./record/search-record/search-record.module').then( m => m.SearchRecordPageModule)
-      },
-      {
-        path: ':patientInfo',
-        loadChildren: () => import('./record/view-record/view-record.module').then( m => m.ViewRecordPageModule)
-      },
-    ]
+    loadChildren: () => import('./record/search-record/search-record.module').then( m => m.SearchRecordPageModule)
   },
-
+  {
+    path: 'recordInfo',
+    loadChildren: () => import('./record/view-record/view-record.module').then( m => m.ViewRecordPageModule)
+  },
 ];
 
 @NgModule({

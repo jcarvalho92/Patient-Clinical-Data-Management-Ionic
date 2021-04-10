@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginPage implements OnInit {
 
   ]
   doctor: any = {};
-  constructor(private router: Router) { }
+  constructor(private router: Router, public alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -46,6 +47,19 @@ export class LoginPage implements OnInit {
     if(result.length != 0){
       this.router.navigate(['/', 'main'],navigationExtras);
     }
+    else{
+      this.presentAlert();
+    }
 
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      message: 'User does not found,Please try again.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }

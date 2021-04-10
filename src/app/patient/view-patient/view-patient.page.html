@@ -16,7 +16,18 @@
     <ion-grid>
       <ion-row>
         <ion-col size-md="6" offset-md="3">
-
+          <ion-row>
+            <ion-label class="title">Patient Id</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="info">{{loadedPatient._id.toString()}}</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="title">Date</ion-label>
+          </ion-row>
+          <ion-row>
+            <ion-label class="info">{{loadedPatient.dateIncluded?.substring(0,10)}}</ion-label>
+          </ion-row>
           <ion-row>
               <ion-label class="title">Name</ion-label>
           </ion-row>

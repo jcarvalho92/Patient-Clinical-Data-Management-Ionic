@@ -28,7 +28,7 @@ export class MainPage implements OnInit {
       this.loadedPatients = result;
 
       this.loadedCriticalCases = this.loadedPatients.filter(patient =>{
-        return patient.status === "Critical";
+        return patient.status.toLowerCase() === "critical";
       });
     });
   }
