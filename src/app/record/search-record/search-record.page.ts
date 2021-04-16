@@ -17,17 +17,31 @@ export class SearchRecordPage implements OnInit {
   }
 
   submit() {
-    console.log("test 1");
-    this.remoteService.getPatientRecordByNameFromApi(this.record.recordInfo).subscribe(result => {
-      this.loadedRecord = result;
-      let navigationExtras: NavigationExtras = {
-        state: {
-          record: this.loadedRecord
-        }
-      };
-      console.log(this.loadedRecord);
-      this.router.navigate(['/', 'recordInfo'],navigationExtras);
-    });
+    if (this.record.search == "searchByName"){
+      this.remoteService.getPatientRecordByNameFromApi(this.record.recordInfo).subscribe(result => {
+        this.loadedRecord = result;
+        let navigationExtras: NavigationExtras = {
+          state: {
+            record: this.loadedRecord
+          }
+        };
+        console.log(this.loadedRecord);
+        this.router.navigate(['/', 'recordInfo'],navigationExtras);
+      });
+    }
+    else{
+      this.remoteService.getPatientRecordByIdFromApi(this.record.recordInfo).subscribe(result => {
+        this.loadedRecord = result;
+        let navigationExtras: NavigationExtras = {
+          state: {
+            record: this.loadedRecord
+          }
+        };
+        console.log(this.loadedRecord);
+        this.router.navigate(['/', 'recordInfo'],navigationExtras);
+      });
+    }
+
   }
 
 }

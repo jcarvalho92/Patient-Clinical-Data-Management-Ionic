@@ -15,16 +15,35 @@ export class SearchPatientPage implements OnInit {
   }
 
   submit() {
-    this.remoteService.getPatientByNameFromApi(this.patient.patientInfo).subscribe(result => {
-      this.loadedPatient = result;
+    if (this.patient.search == "searchByName"){
+      this.remoteService.getPatientByNameFromApi(this.patient.patientInfo).subscribe(result => {
+        this.loadedPatient = result;
 
-      let navigationExtras: NavigationExtras = {
-        state: {
-          patient: this.loadedPatient
-        }
-      };
+        console.log(this.loadedPatient);
+        let navigationExtras: NavigationExtras = {
+          state: {
+            patient: this.loadedPatient
+          }
+        };
 
-      this.router.navigate(['/', 'patientInfo'],navigationExtras);
-    });
+        this.router.navigate(['/', 'patientInfo'],navigationExtras);
+      });
+    }
+    else{
+      this.remoteService.getPatientByIdFromApi(this.patient.patientInfo).subscribe(result => {
+        this.loadedPatient = result;
+
+        console.log(this.loadedPatient);
+        let navigationExtras: NavigationExtras = {
+          state: {
+           patient: this.loadedPatient
+         }
+        };
+
+        this.router.navigate(['/', 'patientInfo'],navigationExtras);
+      });
+    }
+
   }
 }
+

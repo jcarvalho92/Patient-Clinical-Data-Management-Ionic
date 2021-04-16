@@ -21,6 +21,11 @@ export class RemoteService {
     return result;
   }
 
+  getPatientByIdFromApi(patientID) {
+    const result = this.http.get(`${this.url}${this.patientPath}/${patientID}`);
+    return result;
+  }
+
   getPatientByNameFromApi(name) {
     const result = this.http.get(`${this.url}${this.patientPath}/name/${name}`);
     return result;
@@ -44,6 +49,10 @@ export class RemoteService {
 
   getPatientRecordByNameFromApi(name) {
     const result = this.http.get(`${this.url}${this.patientPath}/name/${name}/${this.recordPath}`);
+    return result;
+  }
+  getPatientRecordByIdFromApi(patientID) {
+    const result = this.http.get(`${this.url}${this.patientPath}/${patientID}/${this.recordPath}`);
     return result;
   }
 
